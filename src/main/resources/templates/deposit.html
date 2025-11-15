@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit Money - Bank Management System</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="transaction-container">
+        <header class="transaction-header">
+            <div class="header-content">
+                <button class="btn btn-back" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i>
+                    Back
+                </button>
+                <h1><i class="fas fa-plus-circle"></i> Deposit Money</h1>
+                <div class="user-info">
+                    <span id="cardNumber">Card: ****-****-****-****</span>
+                </div>
+            </div>
+        </header>
+        
+        <main class="transaction-main">
+            <div class="transaction-card">
+                <div class="card-header">
+                    <h3>Deposit to Your Account</h3>
+                    <p>Enter the amount you want to deposit</p>
+                </div>
+                
+                <form id="depositForm" class="transaction-form">
+                    <div class="form-group">
+                        <label for="amount">Amount (₹)</label>
+                        <div class="input-group">
+                            <span class="input-prefix">₹</span>
+                            <input type="number" id="amount" name="amount" placeholder="Enter amount" min="1" step="0.01" required>
+                        </div>
+                        <small class="form-hint">Minimum deposit: ₹1</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Description (Optional)</label>
+                        <input type="text" id="description" name="description" placeholder="Enter description">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Deposit Money
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="clearForm()">
+                            <i class="fas fa-eraser"></i>
+                            Clear
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="quick-amounts">
+                    <h4>Quick Amounts</h4>
+                    <div class="amount-buttons">
+                        <button class="amount-btn" onclick="setAmount(100)">₹100</button>
+                        <button class="amount-btn" onclick="setAmount(500)">₹500</button>
+                        <button class="amount-btn" onclick="setAmount(1000)">₹1000</button>
+                        <button class="amount-btn" onclick="setAmount(5000)">₹5000</button>
+                        <button class="amount-btn" onclick="setAmount(10000)">₹10000</button>
+                        <button class="amount-btn" onclick="setAmount(25000)">₹25000</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="balance-info">
+                <div class="balance-card">
+                    <h4>Current Balance</h4>
+                    <div class="balance-amount" id="currentBalance">
+                        <span class="currency">₹</span>
+                        <span class="amount">0.00</span>
+                    </div>
+                    <button class="btn btn-link" onclick="refreshBalance()">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh
+                    </button>
+                </div>
+            </div>
+        </main>
+        
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+        <div id="successMessage" class="success-message" style="display: none;"></div>
+    </div>
+    
+    <script src="/js/deposit.js"></script>
+</body>
+</html>
+
+
+

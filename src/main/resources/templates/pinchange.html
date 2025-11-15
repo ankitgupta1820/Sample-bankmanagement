@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change PIN - Bank Management System</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="nav-brand">
+                <i class="fas fa-university"></i>
+                <span>Bank Management System</span>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-secondary" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Back to Dashboard
+                </button>
+                <button class="btn btn-danger" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="page-header">
+                <h1><i class="fas fa-key"></i> Change PIN</h1>
+                <p>Update your account PIN for enhanced security</p>
+            </div>
+
+            <div class="form-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-shield-alt"></i> PIN Change</h3>
+                    </div>
+                    <div class="card-content">
+                        <form id="pinChangeForm">
+                            <div class="form-group">
+                                <label for="currentPin">
+                                    <i class="fas fa-lock"></i> Current PIN
+                                </label>
+                                <input 
+                                    type="password" 
+                                    id="currentPin" 
+                                    name="currentPin" 
+                                    maxlength="6" 
+                                    pattern="[0-9]{6}" 
+                                    placeholder="Enter current PIN"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="newPin">
+                                    <i class="fas fa-key"></i> New PIN
+                                </label>
+                                <input 
+                                    type="password" 
+                                    id="newPin" 
+                                    name="newPin" 
+                                    maxlength="6" 
+                                    pattern="[0-9]{6}" 
+                                    placeholder="Enter new PIN"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPin">
+                                    <i class="fas fa-check-circle"></i> Confirm New PIN
+                                </label>
+                                <input 
+                                    type="password" 
+                                    id="confirmPin" 
+                                    name="confirmPin" 
+                                    maxlength="6" 
+                                    pattern="[0-9]{6}" 
+                                    placeholder="Confirm new PIN"
+                                    required
+                                >
+                            </div>
+
+                            <div class="pin-requirements">
+                                <h4><i class="fas fa-info-circle"></i> PIN Requirements:</h4>
+                                <ul>
+                                    <li>Must be exactly 6 digits</li>
+                                    <li>Should not be easily guessable (avoid 1234, 0000, etc.)</li>
+                                    <li>Should be different from your current PIN</li>
+                                    <li>Keep it confidential and secure</li>
+                                </ul>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" onclick="clearForm()">
+                                    <i class="fas fa-eraser"></i> Clear
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save"></i> Change PIN
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="security-tips">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-shield-alt"></i> Security Tips</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="tips-grid">
+                                <div class="tip-item">
+                                    <i class="fas fa-eye-slash"></i>
+                                    <div>
+                                        <h4>Keep it Secret</h4>
+                                        <p>Never share your PIN with anyone</p>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <i class="fas fa-random"></i>
+                                    <div>
+                                        <h4>Use Random Numbers</h4>
+                                        <p>Avoid birthdays or obvious patterns</p>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <div>
+                                        <h4>Change Regularly</h4>
+                                        <p>Update your PIN periodically</p>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <i class="fas fa-user-shield"></i>
+                                    <div>
+                                        <h4>Cover When Entering</h4>
+                                        <p>Shield your PIN when typing</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/pinchange.js"></script>
+</body>
+</html>

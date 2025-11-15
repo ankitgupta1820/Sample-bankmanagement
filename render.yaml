@@ -1,0 +1,35 @@
+services:
+  # Backend Service
+  - type: web
+    name: bank-management-backend
+    env: java
+    buildCommand: mvn clean package -DskipTests
+    startCommand: java -jar target/*.jar
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: SPRING_PROFILES_ACTIVE
+        value: production
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: bank-db
+          property: connectionString
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: bank-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: bank-db
+          property: password
+      - key: JWT_SECRET
+        generateValue: true
+    
+    # Health check
+    healthCheckPath: /actuator/health
+    
+databases:
+  - name: bank-db
+    databaseName: bankmanagementsystem
+    user: bankuser
+    plan: free

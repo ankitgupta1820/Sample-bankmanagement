@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Statement - Bank Management System</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="statement-container">
+        <header class="statement-header">
+            <div class="header-content">
+                <button class="btn btn-back" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i>
+                    Back
+                </button>
+                <h1><i class="fas fa-file-alt"></i> Mini Statement</h1>
+                <div class="user-info">
+                    <span id="cardNumber">Card: ****-****-****-****</span>
+                </div>
+            </div>
+        </header>
+        
+        <main class="statement-main">
+            <div class="statement-card">
+                <div class="card-header">
+                    <h3>Recent Transactions</h3>
+                    <p>Last 5 transactions on your account</p>
+                </div>
+                
+                <div class="statement-content">
+                    <div class="balance-summary">
+                        <div class="current-balance">
+                            <span class="label">Current Balance:</span>
+                            <span class="amount" id="currentBalance">
+                                <span class="currency">₹</span>
+                                <span class="value">0.00</span>
+                            </span>
+                        </div>
+                        <button class="btn btn-refresh" onclick="refreshStatement()">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh
+                        </button>
+                    </div>
+                    
+                    <div class="transactions-section">
+                        <h4>Transaction History</h4>
+                        <div id="transactionsList" class="transactions-list">
+                            <div class="loading">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                Loading transactions...
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="statement-footer">
+                        <div class="print-section">
+                            <button class="btn btn-secondary" onclick="printStatement()">
+                                <i class="fas fa-print"></i>
+                                Print Statement
+                            </button>
+                        </div>
+                        
+                        <div class="download-section">
+                            <button class="btn btn-secondary" onclick="downloadStatement()">
+                                <i class="fas fa-download"></i>
+                                Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="account-info">
+                <div class="info-card">
+                    <h4>Account Information</h4>
+                    <div class="info-items">
+                        <div class="info-item">
+                            <span class="info-label">Account Type:</span>
+                            <span class="info-value">Savings Account</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Account Status:</span>
+                            <span class="info-value status-active">Active</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Last Updated:</span>
+                            <span class="info-value" id="lastUpdated">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="help-card">
+                    <h4>Need Help?</h4>
+                    <div class="help-items">
+                        <div class="help-item">
+                            <i class="fas fa-phone"></i>
+                            <span>Call us: 1800-XXX-XXXX</span>
+                        </div>
+                        <div class="help-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email: support@bank.com</span>
+                        </div>
+                        <div class="help-item">
+                            <i class="fas fa-clock"></i>
+                            <span>24/7 Customer Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+    </div>
+    
+    <script src="/js/ministatement.js"></script>
+</body>
+</html>
+
+
+

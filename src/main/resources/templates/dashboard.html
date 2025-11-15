@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Management System - Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-university"></i>
+                    <span>Bank Management System</span>
+                </div>
+                <div class="user-info">
+                    <span id="cardNumber">Card: ****-****-****-****</span>
+                    <button class="btn btn-logout" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <main class="dashboard-main">
+            <div class="dashboard-grid">
+                <div class="card balance-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-wallet"></i> Account Balance</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="balance-amount" id="currentBalance">
+                            <span class="currency">₹</span>
+                            <span class="amount">0.00</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="refreshBalance()">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="card quick-actions">
+                    <div class="card-header">
+                        <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="action-buttons">
+                            <button class="action-btn deposit" onclick="navigateTo('deposit')">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Deposit</span>
+                            </button>
+                            <button class="action-btn withdraw" onclick="navigateTo('withdraw')">
+                                <i class="fas fa-minus-circle"></i>
+                                <span>Withdraw</span>
+                            </button>
+                            <button class="action-btn transfer" onclick="navigateTo('transfer')">
+                                <i class="fas fa-exchange-alt"></i>
+                                <span>Transfer</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card transactions-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-history"></i> Recent Transactions</h3>
+                        <button class="btn btn-link" onclick="navigateTo('transactions')">View All</button>
+                    </div>
+                    <div class="card-content">
+                        <div id="recentTransactions" class="transactions-list">
+                            <div class="loading">Loading transactions...</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card services-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-cogs"></i> Banking Services</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="service-buttons">
+                            <button class="service-btn" onclick="navigateTo('ministatement')">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Mini Statement</span>
+                            </button>
+                            <button class="service-btn" onclick="navigateTo('pinchange')">
+                                <i class="fas fa-key"></i>
+                                <span>Change PIN</span>
+                            </button>
+                            <button class="service-btn" onclick="navigateTo('profile')">
+                                <i class="fas fa-user"></i>
+                                <span>Profile</span>
+                            </button>
+                            <button class="service-btn" onclick="navigateTo('support')">
+                                <i class="fas fa-headset"></i>
+                                <span>Support</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card fast-cash-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-money-bill-wave"></i> Fast Cash</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="fast-cash-buttons">
+                            <button class="fast-cash-btn" onclick="fastCash(500)">₹500</button>
+                            <button class="fast-cash-btn" onclick="fastCash(1000)">₹1000</button>
+                            <button class="fast-cash-btn" onclick="fastCash(2000)">₹2000</button>
+                            <button class="fast-cash-btn" onclick="fastCash(5000)">₹5000</button>
+                            <button class="fast-cash-btn" onclick="fastCash(10000)">₹10000</button>
+                            <button class="fast-cash-btn" onclick="fastCash(15000)">₹15000</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card info-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-info-circle"></i> Account Information</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-item">
+                            <span class="info-label">Account Status:</span>
+                            <span class="info-value active">Active</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Last Login:</span>
+                            <span class="info-value" id="lastLogin">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Account Type:</span>
+                            <span class="info-value">Savings</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+        <div id="successMessage" class="success-message" style="display: none;"></div>
+    </div>
+    
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>
+
+
+
